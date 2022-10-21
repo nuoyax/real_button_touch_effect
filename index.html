@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons&style=outlined" rel="stylesheet">
+    <title>真实质感的按钮设计HTML/CSS/JS</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            background: linear-gradient(90deg, rgba(46, 44, 45, 1) 0%, rgba(66, 64, 67, 1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+
+        }
+
+        .btn {
+            position: relative;
+            width: 7em;
+            height: 7em;
+            cursor: pointer;
+            background: linear-gradient(125deg, #171717, #444245);
+            box-shadow: inset 2px 2px 0px #7d7c7e, inset -2px -2px 0px #1c1c1c;
+            color: #a6a6a6;
+        }
+        .btn span{
+            font-size: 40px;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: inherit;
+            background: linear-gradient(145deg, #262626, #606060);
+            width: 7.25em;
+            height: 7.25em;
+            z-index: -1;
+            box-shadow: 11px 11px 22px #141414, -11px -11px 22px #525252;
+        }
+
+        .btn-clicked {
+            background: linear-gradient(-185deg, #131313, #444245);
+            box-shadow: inset 2px 2px 0px #5e5e5e, inset -2px -2px 0px #1c1c1c;
+        }
+
+        .icon-clicked {
+            color: #fff;
+            text-shadow: 0px 0px 15px #008ece;
+        }
+
+        button {
+            border-radius: 50%;
+            border: none;
+        }
+
+       
+    </style>
+</head>
+
+<body>
+
+    <button class="btn">
+        <span class="material-icons ">
+            fingerprint
+        </span>
+    </button>
+    <button class="btn">
+        <span class="material-icons">wifi</span></button>
+
+    <button class="btn">
+
+        <span class="material-icons">
+            power_settings_new
+        </span>
+
+    </button>
+    <button class="btn"><span class="material-icons">
+            https
+        </span></button>
+    <script>
+        const btn = document.querySelectorAll('.btn')
+        for (let index = 0; index < btn.length; index++) {
+            btn[index].addEventListener('click', e => {
+                btn[index].classList.toggle('btn-clicked')
+                btn[index].firstElementChild.classList.toggle('icon-clicked')
+            })
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
